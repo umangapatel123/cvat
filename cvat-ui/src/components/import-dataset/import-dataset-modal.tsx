@@ -95,13 +95,14 @@ function ImportDatasetModal(props: StateToProps): JSX.Element {
     useEffect(() => {
         setUploadParams({
             ...uploadParams,
+            file,
             resource,
             sourceStorage: {
                 location: defaultStorageLocation,
                 cloudStorageId: defaultStorageCloudId,
             } as Storage,
         } as UploadParams);
-    }, [resource, defaultStorageLocation, defaultStorageCloudId]);
+    }, [file, resource, defaultStorageLocation, defaultStorageCloudId]);
 
     const isProject = useCallback((): boolean => instance instanceof core.classes.Project, [instance]);
     const isTask = useCallback((): boolean => instance instanceof core.classes.Task, [instance]);
